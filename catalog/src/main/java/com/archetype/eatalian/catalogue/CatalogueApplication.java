@@ -1,13 +1,13 @@
-package com.archetype.eatalian.catalog;
+package com.archetype.eatalian.catalogue;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CatalogApplication {
+public class CatalogueApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CatalogApplication.class, args);
+        SpringApplication.run(CatalogueApplication.class, args);
     }
 
 }

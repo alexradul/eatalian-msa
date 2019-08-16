@@ -1,4 +1,4 @@
-package com.archetype.eatalian.catalog;
+package com.archetype.eatalian.catalogue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
