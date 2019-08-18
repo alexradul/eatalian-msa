@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Transactional
 @RestController
-@RequestMapping("/categorys")
+@RequestMapping("/categories")
 public class CategoryController {
     private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
 

@@ -48,4 +48,11 @@ public class AccountService {
     public void delete(Long id) {
         delete(findOne(id));
     }
+
+    public Account findByEmail(String email) {
+        return repository
+                .findByEmail(email)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Cannot find Account by " + email));
+    }
 }

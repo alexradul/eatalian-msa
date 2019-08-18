@@ -4,15 +4,13 @@
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
 
-package com.archetype.eatalian.accounts.repositories;
+package com.archetype.eatalian.orders.repositories;
 
-import com.archetype.eatalian.accounts.domain.Account;
+import com.archetype.eatalian.orders.domain.Order;
 import org.springframework.data.repository.*;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface AccountRepository extends CrudRepository<Account, Long> {
-    Optional<Account> findByEmail(String email);
+public interface OrderRepository extends CrudRepository<Order, Long> {
+
 }

@@ -4,10 +4,10 @@
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
 
-package com.archetype.eatalian.accounts.controllers;
+package com.archetype.eatalian.orders.controllers;
 
-import com.archetype.eatalian.accounts.domain.Account;
-import com.archetype.eatalian.accounts.services.AccountService;
+import com.archetype.eatalian.orders.domain.Order;
+import com.archetype.eatalian.orders.services.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,29 +18,29 @@ import javax.validation.Valid;
 
 @Transactional
 @RestController
-@RequestMapping("/accounts")
-public class AccountController {
-    private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
+@RequestMapping("/orders")
+public class OrderController {
+    private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
-    private final AccountService service;
+    private final OrderService service;
 
     @Autowired
-    public AccountController(AccountService service) {
+    public OrderController(OrderService service) {
         this.service = service;
     }
 
     @GetMapping
-    public Iterable<Account> findAll() {
+    public Iterable<Order> findAll() {
         return service.findAll();
     }
 
-    @GetMapping("/{email}")
-    public Account findOne(@PathVariable("email") String email) {
-        return service.findByEmail(email);
+    @GetMapping("/{id}")
+    public Order findOne(@PathVariable("id") Long id) {
+        return service.findOne(id);
     }
 
     @PostMapping
-    public Account create(@RequestBody @Valid Account entity) {
+    public Order create(@RequestBody @Valid Order entity) {
         return service.save(entity);
     }
 

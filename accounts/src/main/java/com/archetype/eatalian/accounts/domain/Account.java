@@ -187,5 +187,16 @@ public class Account {
     }
 
 // ----------- << class.extras@AAAAAAFsmOMlDAPjE2E= >>
+
+
+    public Account() {
+    }
+
+    public Account(@NotNull String email, @NotNull String firstName, @NotNull String lastName) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
 // ----------- >>
 }

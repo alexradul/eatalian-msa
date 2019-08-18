@@ -10,6 +10,7 @@ import java.time.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.*;
 
 
 // ----------- << imports@AAAAAAFsmPLIWFilvSU= >>
@@ -39,6 +40,7 @@ public class Product {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonIgnore
     // ----------- << attribute.annotations@AAAAAAFsmPRXTVknsvQ= >>
     // ----------- >>
     private Category category;
@@ -139,5 +141,14 @@ public class Product {
     }
 
 // ----------- << class.extras@AAAAAAFsmPLIWFilvSU= >>
+
+    public Product() {
+    }
+
+    public Product(@NotNull String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
 // ----------- >>
 }

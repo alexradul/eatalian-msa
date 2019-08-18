@@ -3,7 +3,7 @@
 *
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
-package com.archetype.eatalian.catalogue.domain;
+package com.archetype.eatalian.orders.domain;
 
 import java.util.*;
 import java.time.*;
@@ -12,23 +12,23 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 
-// ----------- << imports@AAAAAAFsmPOcIFjtCyA= >>
+// ----------- << imports@AAAAAAFspTwZcYbd47Q= >>
 import java.math.BigDecimal;
 // ----------- >>
 
 @Embeddable
-// ----------- << class.annotations@AAAAAAFsmPOcIFjtCyA= >>
+// ----------- << class.annotations@AAAAAAFspTwZcYbd47Q= >>
 // ----------- >>
 public class CurrencyAmount {
     @NotNull
     @Column(nullable = false)
-    // ----------- << attribute.annotations@AAAAAAFsmPOwJVkXhWk= >>
+    // ----------- << attribute.annotations@AAAAAAFspTwqrIcHfbw= >>
     // ----------- >>
     private BigDecimal amount;
 
     @NotNull
     @Column(nullable = false)
-    // ----------- << attribute.annotations@AAAAAAFsmPPfY1keWtc= >>
+    // ----------- << attribute.annotations@AAAAAAFspTxH0ocODHE= >>
     // ----------- >>
     private Currency currency;
 
@@ -50,22 +50,6 @@ public class CurrencyAmount {
         return this;
     }
 
-// ----------- << class.extras@AAAAAAFsmPOcIFjtCyA= >>
-
-    public static CurrencyAmount of(int amount, Currency currency) {
-        return of(BigDecimal.valueOf(amount), currency);
-    }
-    public static CurrencyAmount of(BigDecimal amount, Currency currency) {
-        return new CurrencyAmount(amount, currency);
-    }
-
-    public CurrencyAmount(BigDecimal amount, Currency currency) {
-        this.amount = amount;
-        this.currency = currency;
-    }
-
-    public CurrencyAmount() {
-    }
-
+// ----------- << class.extras@AAAAAAFspTwZcYbd47Q= >>
 // ----------- >>
 }
