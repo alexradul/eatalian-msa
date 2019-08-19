@@ -5,6 +5,8 @@
 */
 package com.archetype.eatalian.orders.domain;
 
+
+import java.math.BigDecimal;
 import java.util.*;
 import java.time.*;
 
@@ -13,6 +15,7 @@ import javax.validation.constraints.*;
 
 
 // ----------- << imports@AAAAAAFspTr/SYaVpfc= >>
+import com.archetype.eatalian.orders.resources.ProductRequestResource;
 // ----------- >>
 
 @Entity
@@ -57,7 +60,8 @@ public class ProductRequest {
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name="name", column = @Column(name = "product_name"))
+        @AttributeOverride(name="name", column = @Column(name = "product_name")),
+        @AttributeOverride(name="sku", column = @Column(name = "product_sku"))
     })
     // ----------- << attribute.annotations@AAAAAAFspT6IUof0MGE= >>
     // ----------- >>
@@ -162,8 +166,22 @@ public class ProductRequest {
     // ----------- >>
     public CurrencyAmount getTotalPrice() {
     // ----------- << method.body@AAAAAAFspUT9U5Rbb2A= >>
+        CurrencyAmount productPrice = getProduct().getPrice();
+        return CurrencyAmount
+                .of(
+                        productPrice.getAmount().multiply(BigDecimal.valueOf(getQuantity())),
+                        productPrice.getCurrency());
     // ----------- >>
     }
 // ----------- << class.extras@AAAAAAFspTr/SYaVpfc= >>
+    public ProductRequestResource toResource() {
+        ProductRequestResource resource = new ProductRequestResource();
+        resource.setComment(getComment());
+        resource.setPricePerUnit(getPricePerUnit());
+        resource.setQuantity(getQuantity());
+        resource.setSku(getProduct().getSku());
+        resource.setSubTotal(getTotalPrice());
+        return resource;
+    }
 // ----------- >>
 }

@@ -25,6 +25,12 @@ public class Product {
     // ----------- >>
     private String name;
 
+    @NotNull
+    @Column(nullable = false)
+    // ----------- << attribute.annotations@AAAAAAFsqCiPFwuHMf0= >>
+    // ----------- >>
+    private String sku;
+
     @Transient
     // ----------- << attribute.annotations@AAAAAAFspTvoE4bX1go= >>
     // ----------- >>
@@ -34,12 +40,21 @@ public class Product {
         return name;
     }
 
+    public String getSku() {
+        return sku;
+    }
+
     public CurrencyAmount getPrice() {
         return price;
     }
 
     public Product setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public Product setSku(String sku) {
+        this.sku = sku;
         return this;
     }
 

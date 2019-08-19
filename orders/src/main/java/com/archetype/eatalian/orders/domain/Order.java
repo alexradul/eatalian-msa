@@ -5,6 +5,7 @@
 */
 package com.archetype.eatalian.orders.domain;
 
+
 import java.util.*;
 import java.time.*;
 
@@ -13,6 +14,8 @@ import javax.validation.constraints.*;
 
 
 // ----------- << imports@AAAAAAFspTnuKIYKpTM= >>
+import com.archetype.eatalian.orders.resources.OrderResource;
+import java.util.stream.Collectors;
 // ----------- >>
 
 @Entity
@@ -207,5 +210,29 @@ public class Order {
     }
 
 // ----------- << class.extras@AAAAAAFspTnuKIYKpTM= >>
+    public OrderResource toResource() {
+        OrderResource resource = new OrderResource();
+        resource.linkAccount(this.getAccount());
+        resource.linkShippingAddress(this.getShipmentAddress());
+        resource.linkBillingAddress(this.getBillingAddress());
+        resource.getProductRequests()
+                .addAll(getRequests()
+                        .stream()
+                        .map(ProductRequest::toResource)
+                        .collect(Collectors.toList()));
+        return resource;
+    }
+
+    public Order updateSubTotal(CurrencyAmount totalPrice) {
+        if (this.subTotal != null) {
+            this.subTotal =
+                    CurrencyAmount.of(
+                            subTotal.getAmount().add(totalPrice.getAmount()),
+                            subTotal.getCurrency());
+        } else {
+            this.subTotal = totalPrice;
+        }
+        return this;
+    }
 // ----------- >>
 }

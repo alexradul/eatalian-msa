@@ -51,5 +51,11 @@ public class CurrencyAmount {
     }
 
 // ----------- << class.extras@AAAAAAFspTwZcYbd47Q= >>
+    public static CurrencyAmount of(BigDecimal amount, Currency currency) {
+        return new CurrencyAmount()
+                .setAmount(amount)
+                .setCurrency(currency);
+    }
+
 // ----------- >>
 }

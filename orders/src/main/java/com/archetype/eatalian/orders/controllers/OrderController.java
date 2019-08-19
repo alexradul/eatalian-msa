@@ -7,6 +7,7 @@
 package com.archetype.eatalian.orders.controllers;
 
 import com.archetype.eatalian.orders.domain.Order;
+import com.archetype.eatalian.orders.resources.OrderResource;
 import com.archetype.eatalian.orders.services.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,8 +41,10 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order create(@RequestBody @Valid Order entity) {
-        return service.save(entity);
+    public OrderResource create(@RequestBody @Valid OrderResource resource) {
+        return service
+                .create(resource)
+                .toResource();
     }
 
     @DeleteMapping("/{id}")
