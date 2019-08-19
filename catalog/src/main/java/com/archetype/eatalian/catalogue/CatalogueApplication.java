@@ -43,12 +43,14 @@ public class CatalogueApplication {
                     new Product("Lav", "Ham, bacon, eggs, tomato")
                             .setPrice(
                                     CurrencyAmount.of(200, Currency.getInstance("RSD")))
+                            .setSku("sw-lav")
                             .linkCategory(sandwiches));
 
             productRepository.save(
                     new Product("Blok", "Smoked chicken, bacon, eggs, tomato")
                             .setPrice(
                                     CurrencyAmount.of(200, Currency.getInstance("RSD")))
+                            .setSku("sw-blok")
                             .linkCategory(sandwiches));
 
             Category pizzas = categoryRepository.save(
@@ -59,6 +61,7 @@ public class CatalogueApplication {
                     new Product("Capriciosa", "Pelat, cheese, ham, mushrooms, origano")
                             .setPrice(
                                     CurrencyAmount.of(200, Currency.getInstance("RSD")))
+                            .setSku("pz-capriciosa")
                             .linkCategory(pizzas));
 
 

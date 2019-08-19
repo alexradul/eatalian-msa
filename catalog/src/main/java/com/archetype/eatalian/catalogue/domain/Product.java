@@ -32,6 +32,16 @@ public class Product {
     // ----------- >>
     private String name;
 
+    /**
+    * A stock keeping unit (SKU).
+    */
+
+    @NotNull
+    @Column(nullable = false)
+    // ----------- << attribute.annotations@AAAAAAFsqB77Y4xuN38= >>
+    // ----------- >>
+    private String sku;
+
     @Column
     // ----------- << attribute.annotations@AAAAAAFsmPNIqFjmN1U= >>
     // ----------- >>
@@ -64,6 +74,10 @@ public class Product {
         return name;
     }
 
+    public String getSku() {
+        return sku;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -78,6 +92,11 @@ public class Product {
 
     public Product setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public Product setSku(String sku) {
+        this.sku = sku;
         return this;
     }
 

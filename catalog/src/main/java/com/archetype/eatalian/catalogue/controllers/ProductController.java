@@ -34,9 +34,9 @@ public class ProductController {
         return service.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Product findOne(@PathVariable("id") Long id) {
-        return service.findOne(id);
+    @GetMapping("/{sku}")
+    public Product findOne(@PathVariable("sku") String sku) {
+        return service.findOne(sku);
     }
 
     @PostMapping

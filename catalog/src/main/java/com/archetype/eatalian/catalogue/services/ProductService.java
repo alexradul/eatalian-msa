@@ -37,6 +37,13 @@ public class ProductService {
                         "Cannot find Product by " + id));
     }
 
+    public Product findOne(String sku) {
+        return repository
+                .findBySku(sku)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Cannot find Product by " + sku));
+    }
+
     public Product save(Product entity) {
         return repository.save(entity);
     }

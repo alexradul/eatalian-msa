@@ -917,6 +917,24 @@
 														},
 														{
 															"_type": "UMLAttributeView",
+															"_id": "AAAAAAFsqB77hIxxRuw=",
+															"_parent": {
+																"$ref": "AAAAAAFsmPLIWVitXbw="
+															},
+															"model": {
+																"$ref": "AAAAAAFsqB77Y4xuN38="
+															},
+															"fillColor": "#38bcff",
+															"font": "Arial;11;0",
+															"left": 533,
+															"top": 191,
+															"width": 117.08984375,
+															"height": 11,
+															"text": "+sku: string",
+															"horizontalAlignment": 0
+														},
+														{
+															"_type": "UMLAttributeView",
 															"_id": "AAAAAAFsmPNIzFjp+1c=",
 															"_parent": {
 																"$ref": "AAAAAAFsmPLIWVitXbw="
@@ -927,7 +945,7 @@
 															"fillColor": "#38bcff",
 															"font": "Arial;11;0",
 															"left": 533,
-															"top": 191,
+															"top": 204,
 															"width": 117.08984375,
 															"height": 11,
 															"text": "+description: string[0..1]",
@@ -939,7 +957,7 @@
 													"left": 528,
 													"top": 173,
 													"width": 127.08984375,
-													"height": 34
+													"height": 47
 												},
 												{
 													"_type": "UMLOperationCompartmentView",
@@ -997,7 +1015,7 @@
 											"left": 528,
 											"top": 150,
 											"width": 127.08984375,
-											"height": 67,
+											"height": 70,
 											"showProperty": false,
 											"nameCompartment": {
 												"$ref": "AAAAAAFsmPLIWViohN8="
@@ -1823,7 +1841,7 @@
 													},
 													"font": "Arial;11;0",
 													"left": 611,
-													"top": 264,
+													"top": 265,
 													"width": 69.39453125,
 													"height": 11,
 													"alpha": 1.5357228063314097,
@@ -1846,7 +1864,7 @@
 													"visible": null,
 													"font": "Arial;11;0",
 													"left": 618,
-													"top": 261,
+													"top": 262,
 													"height": 11,
 													"alpha": 1.5707963267948966,
 													"distance": 30,
@@ -1867,7 +1885,7 @@
 													"visible": false,
 													"font": "Arial;11;0",
 													"left": 574,
-													"top": 262,
+													"top": 263,
 													"height": 11,
 													"alpha": -1.5707963267948966,
 													"distance": 15,
@@ -1887,7 +1905,7 @@
 													},
 													"font": "Arial;11;0",
 													"left": 594,
-													"top": 227,
+													"top": 230,
 													"width": 43.11376953125,
 													"height": 11,
 													"alpha": 0.9917221355537058,
@@ -1910,7 +1928,7 @@
 													"visible": false,
 													"font": "Arial;11;0",
 													"left": 617,
-													"top": 239,
+													"top": 242,
 													"height": 11,
 													"alpha": 0.7853981633974483,
 													"distance": 40,
@@ -1930,7 +1948,7 @@
 													},
 													"font": "Arial;11;0",
 													"left": 572,
-													"top": 222,
+													"top": 225,
 													"width": 6.11767578125,
 													"height": 11,
 													"alpha": -0.9048268404516946,
@@ -2039,7 +2057,7 @@
 											"tail": {
 												"$ref": "AAAAAAFsmPLIWVin364="
 											},
-											"points": "589:216;589:318",
+											"points": "589:219;589:318",
 											"showVisibility": true,
 											"showProperty": false,
 											"nameLabel": {
@@ -2293,6 +2311,16 @@
 												"$ref": "AAAAAAFsmPLIWFilvSU="
 											},
 											"name": "name",
+											"type": "string"
+										},
+										{
+											"_type": "UMLAttribute",
+											"_id": "AAAAAAFsqB77Y4xuN38=",
+											"_parent": {
+												"$ref": "AAAAAAFsmPLIWFilvSU="
+											},
+											"name": "sku",
+											"documentation": "A stock keeping unit (SKU). ",
 											"type": "string"
 										},
 										{
