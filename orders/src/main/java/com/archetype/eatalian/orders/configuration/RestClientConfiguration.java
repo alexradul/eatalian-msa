@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.archetype.eatalian.orders.ports")
 public class RestClientConfiguration {
 
     @Bean

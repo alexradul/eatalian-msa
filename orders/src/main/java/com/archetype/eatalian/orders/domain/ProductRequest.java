@@ -5,8 +5,6 @@
 */
 package com.archetype.eatalian.orders.domain;
 
-
-import java.math.BigDecimal;
 import java.util.*;
 import java.time.*;
 
@@ -15,6 +13,7 @@ import javax.validation.constraints.*;
 
 
 // ----------- << imports@AAAAAAFspTr/SYaVpfc= >>
+import java.math.BigDecimal;
 import com.archetype.eatalian.orders.resources.ProductRequestResource;
 // ----------- >>
 

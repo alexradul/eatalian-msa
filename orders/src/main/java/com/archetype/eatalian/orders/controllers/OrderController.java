@@ -12,6 +12,7 @@ import com.archetype.eatalian.orders.services.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,11 +37,12 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    public Order findOne(@PathVariable("id") Long id) {
-        return service.findOne(id);
+    public OrderResource findOne(@PathVariable("id") Long id) {
+        return service.findOne(id).toResource();
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public OrderResource create(@RequestBody @Valid OrderResource resource) {
         return service
                 .create(resource)

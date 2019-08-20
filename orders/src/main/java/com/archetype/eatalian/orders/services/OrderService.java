@@ -13,6 +13,7 @@ import com.archetype.eatalian.orders.domain.ProductRequest;
 import com.archetype.eatalian.orders.ports.AccountService;
 import com.archetype.eatalian.orders.ports.CatalogueService;
 import com.archetype.eatalian.orders.repositories.OrderRepository;
+import com.archetype.eatalian.orders.repositories.ProductRequestRepository;
 import com.archetype.eatalian.orders.resources.OrderResource;
 import com.archetype.eatalian.orders.resources.ProductRequestResource;
 import org.slf4j.Logger;
@@ -23,43 +24,44 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
-    private final OrderRepository repository;
+    private final OrderRepository orderRepository;
+    private final ProductRequestRepository requestRepository;
     private final AccountService accountService;
     private final CatalogueService catalogueService;
 
     @Autowired
-    public OrderService(OrderRepository repository,
+    public OrderService(OrderRepository orderRepository,
+                        ProductRequestRepository requestRepository,
                         AccountService accountService,
                         CatalogueService catalogueService) {
-        this.repository = repository;
+        this.orderRepository = orderRepository;
+        this.requestRepository = requestRepository;
         this.accountService = accountService;
         this.catalogueService = catalogueService;
     }
 
     public Iterable<Order> findAll() {
-        return repository.findAll();
+        return orderRepository.findAll();
     }
 
     public Order findOne(Long id) {
-        return repository
+        return orderRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                         "Cannot find Order by " + id));
     }
 
     public Order save(Order entity) {
-        return repository.save(entity);
+        return orderRepository.save(entity);
     }
 
     public void delete(Order entity) {
-        repository.delete(entity);
+        orderRepository.delete(entity);
     }
 
     public void delete(Long id) {
@@ -67,8 +69,10 @@ public class OrderService {
     }
 
     public Order create(OrderResource resource) {
-        Order order = new Order()
-                .setDateOfCreation(LocalDateTime.now());
+        Order order = orderRepository
+                .save(
+                        new Order()
+                                .setDateOfCreation(LocalDateTime.now()));
 
         Account account = accountService.findAccount(resource.getAccountRef());
 
@@ -85,11 +89,13 @@ public class OrderService {
     }
 
     private ProductRequest createProductRequest(ProductRequestResource req) {
-        ProductRequest request = new ProductRequest();
         Product product = catalogueService.getProduct(req.getSku());
-        request.setQuantity(req.getQuantity());
-        request.setComment(req.getComment());
-        request.setPricePerUnit(product.getPrice());
-        return request;
+        return requestRepository
+                .save(
+                        new ProductRequest()
+                                .setQuantity(req.getQuantity())
+                                .setComment(req.getComment())
+                                .setPricePerUnit(product.getPrice())
+                                .linkProduct(product));
     }
 }

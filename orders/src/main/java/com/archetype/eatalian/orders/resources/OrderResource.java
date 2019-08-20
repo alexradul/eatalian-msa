@@ -9,6 +9,7 @@ import java.util.*;
 import java.time.*;
 
 
+import com.archetype.eatalian.orders.domain.CurrencyAmount;
 import com.archetype.eatalian.orders.domain.Account;
 import com.archetype.eatalian.orders.domain.Address;
 // ----------- << imports@AAAAAAFsqCcX0QsMFbE= >>
@@ -28,6 +29,10 @@ public class OrderResource {
     // ----------- << attribute.annotations@AAAAAAFsqCduGQs3uKQ= >>
     // ----------- >>
     private String accountRef;
+
+    // ----------- << attribute.annotations@AAAAAAFssMKuiRERUwo= >>
+    // ----------- >>
+    private CurrencyAmount subTotal;
 
     // ----------- << attribute.annotations@AAAAAAFsqCnLVgyc6Po= >>
     // ----------- >>
@@ -49,6 +54,10 @@ public class OrderResource {
         return accountRef;
     }
 
+    public CurrencyAmount getSubTotal() {
+        return subTotal;
+    }
+
     public Set<ProductRequestResource> getProductRequests() {
         return productRequests;
     }
@@ -67,6 +76,11 @@ public class OrderResource {
 
     public OrderResource setAccountRef(String accountRef) {
         this.accountRef = accountRef;
+        return this;
+    }
+
+    public OrderResource setSubTotal(CurrencyAmount subTotal) {
+        this.subTotal = subTotal;
         return this;
     }
 

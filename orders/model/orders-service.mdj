@@ -524,9 +524,9 @@
 															"visible": false,
 															"fillColor": "#38bcff",
 															"font": "Arial;11;0",
-															"width": 191.08740234375,
+															"width": 415.43798828125,
 															"height": 11,
-															"text": "{archetype.persistence.persistent=true}",
+															"text": "{archetype.persistence.persistent=true, archetype.persistence.tableName=\"TOrders\"}",
 															"horizontalAlignment": 1
 														}
 													],
@@ -3154,6 +3154,16 @@
 											"kind": "boolean",
 											"value": true,
 											"checked": true
+										},
+										{
+											"_type": "Tag",
+											"_id": "AAAAAAFsrXq/KTvF/5g=",
+											"_parent": {
+												"$ref": "AAAAAAFspTnuKIYKpTM="
+											},
+											"name": "archetype.persistence.tableName",
+											"kind": "string",
+											"value": "TOrders"
 										}
 									],
 									"attributes": [
@@ -3685,9 +3695,9 @@
 															"font": "Arial;11;0",
 															"left": 166,
 															"top": 195,
-															"width": 191.08740234375,
+															"width": 415.43798828125,
 															"height": 11,
-															"text": "{archetype.persistence.persistent=true}",
+															"text": "{archetype.persistence.persistent=true, archetype.persistence.tableName=\"TOrders\"}",
 															"horizontalAlignment": 1
 														}
 													],
@@ -5443,7 +5453,7 @@
 															"font": "Arial;11;1",
 															"left": 527,
 															"top": 157,
-															"width": 135.08837890625,
+															"width": 180.0498046875,
 															"height": 11,
 															"text": "ProductRequestResource"
 														},
@@ -5477,7 +5487,7 @@
 													"font": "Arial;11;0",
 													"left": 522,
 													"top": 150,
-													"width": 145.08837890625,
+													"width": 190.0498046875,
 													"height": 23,
 													"stereotypeLabel": {
 														"$ref": "AAAAAAFsqCkU4gxf49Y="
@@ -5515,7 +5525,7 @@
 															"font": "Arial;11;0",
 															"left": 527,
 															"top": 178,
-															"width": 135.08837890625,
+															"width": 180.0498046875,
 															"height": 11,
 															"text": "+sku: string",
 															"horizontalAlignment": 0
@@ -5533,7 +5543,7 @@
 															"font": "Arial;11;0",
 															"left": 527,
 															"top": 191,
-															"width": 135.08837890625,
+															"width": 180.0498046875,
 															"height": 11,
 															"text": "+quantity: int",
 															"horizontalAlignment": 0
@@ -5551,7 +5561,7 @@
 															"font": "Arial;11;0",
 															"left": 527,
 															"top": 204,
-															"width": 135.08837890625,
+															"width": 180.0498046875,
 															"height": 11,
 															"text": "+comment: string[0..1]",
 															"horizontalAlignment": 0
@@ -5565,10 +5575,11 @@
 															"model": {
 																"$ref": "AAAAAAFsqC3t2RJFcpI="
 															},
+															"fillColor": "#38bcff",
 															"font": "Arial;11;0",
 															"left": 527,
 															"top": 217,
-															"width": 135.08837890625,
+															"width": 180.0498046875,
 															"height": 11,
 															"text": "+pricePerUnit: CurrencyAmount[0..1]",
 															"horizontalAlignment": 0
@@ -5582,10 +5593,11 @@
 															"model": {
 																"$ref": "AAAAAAFsqC4rfhKgmFc="
 															},
+															"fillColor": "#38bcff",
 															"font": "Arial;11;0",
 															"left": 527,
 															"top": 230,
-															"width": 135.08837890625,
+															"width": 180.0498046875,
 															"height": 11,
 															"text": "+subTotal: CurrencyAmount[0..1]",
 															"horizontalAlignment": 0
@@ -5651,8 +5663,8 @@
 											"containerChangeable": true,
 											"left": 522,
 											"top": 150,
-											"width": 145.08837890625,
-											"height": 80,
+											"width": 190.0498046875,
+											"height": 96,
 											"nameCompartment": {
 												"$ref": "AAAAAAFsqCkU4QxeccM="
 											},
@@ -5858,9 +5870,9 @@
 														"$ref": "AAAAAAFsqCnLVgyc6Po="
 													},
 													"font": "Arial;11;0",
-													"left": 498,
+													"left": 497,
 													"top": 193,
-													"width": 4.28076171875,
+													"width": 6,
 													"height": 11,
 													"alpha": 0.5235987755982988,
 													"distance": 25,
@@ -6091,6 +6103,17 @@
 											"name": "accountRef",
 											"documentation": "Reference to the requestor Account. ",
 											"type": "string"
+										},
+										{
+											"_type": "UMLAttribute",
+											"_id": "AAAAAAFssMKuiRERUwo=",
+											"_parent": {
+												"$ref": "AAAAAAFsqCcX0QsMFbE="
+											},
+											"name": "subTotal",
+											"type": {
+												"$ref": "AAAAAAFspTwZcYbd47Q="
+											}
 										}
 									]
 								},
@@ -6784,6 +6807,24 @@
 															"height": 11,
 															"text": "+accountRef: string",
 															"horizontalAlignment": 0
+														},
+														{
+															"_type": "UMLAttributeView",
+															"_id": "AAAAAAFssMKuuxEU4lc=",
+															"_parent": {
+																"$ref": "AAAAAAFsqC0OkQ9iGfo="
+															},
+															"model": {
+																"$ref": "AAAAAAFssMKuiRERUwo="
+															},
+															"fillColor": "#38bcff",
+															"font": "Arial;11;0",
+															"left": 305,
+															"top": 281,
+															"width": 195,
+															"height": 11,
+															"text": "+subTotal: CurrencyAmount",
+															"horizontalAlignment": 0
 														}
 													],
 													"fillColor": "#38bcff",
@@ -6791,7 +6832,7 @@
 													"left": 300,
 													"top": 263,
 													"width": 205,
-													"height": 21
+													"height": 34
 												},
 												{
 													"_type": "UMLOperationCompartmentView",
@@ -8154,9 +8195,9 @@
 														"$ref": "AAAAAAFsqCnLVgyc6Po="
 													},
 													"font": "Arial;11;0",
-													"left": 400,
+													"left": 399,
 													"top": 169,
-													"width": 4.28076171875,
+													"width": 6,
 													"height": 11,
 													"alpha": 0.5235987755982988,
 													"distance": 25,
@@ -8313,7 +8354,7 @@
 															"visible": false,
 															"fillColor": "#38bcff",
 															"font": "Arial;11;0",
-															"width": 56.8369140625,
+															"width": 57,
 															"height": 11,
 															"text": "(from ports)"
 														},
@@ -8514,7 +8555,7 @@
 															"font": "Arial;11;0",
 															"left": -72,
 															"top": -12,
-															"width": 56.8369140625,
+															"width": 57,
 															"height": 11,
 															"text": "(from ports)"
 														},
