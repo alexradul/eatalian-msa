@@ -79,5 +79,15 @@ public class Address {
     }
 
 // ----------- << class.extras@AAAAAAFsmOQwEwQ68bU= >>
-// ----------- >>
+
+    public Address(@NotNull String streetAndNo, @NotNull String city, @NotNull String postalCode) {
+        this.streetAndNo = streetAndNo;
+        this.city = city;
+        this.postalCode = postalCode;
+    }
+
+    public Address() {
+    }
+
+    // ----------- >>
 }
