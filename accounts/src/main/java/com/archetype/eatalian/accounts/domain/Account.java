@@ -8,6 +8,8 @@ package com.archetype.eatalian.accounts.domain;
 import java.util.*;
 import java.time.*;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -16,6 +18,7 @@ import javax.validation.constraints.*;
 // ----------- >>
 
 @Entity
+@ApiModel(description = "In order to interact with the application, a customer must have an Account.")
 // ----------- << class.annotations@AAAAAAFsmOMlDAPjE2E= >>
 // ----------- >>
 public class Account {
@@ -32,29 +35,34 @@ public class Account {
 
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "Account email address. Unique for each customer.", required = true)
     // ----------- << attribute.annotations@AAAAAAFsmONmpwQbSPg= >>
     // ----------- >>
     private String email;
 
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "Customer password, encoded.", required = true)
     // ----------- << attribute.annotations@AAAAAAFsmON9NQQixdE= >>
     // ----------- >>
     private String password;
 
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "Customer's first name.", required = true)
     // ----------- << attribute.annotations@AAAAAAFsmOM0OAQN5bY= >>
     // ----------- >>
     private String firstName;
 
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "Customer's last name.", required = true)
     // ----------- << attribute.annotations@AAAAAAFsmONTCQQUG1k= >>
     // ----------- >>
     private String lastName;
 
     @Column
+    @ApiModelProperty("Phone number.")
     // ----------- << attribute.annotations@AAAAAAFsmOOPjgQphws= >>
     // ----------- >>
     private String phoneNo;
@@ -66,6 +74,7 @@ public class Account {
         @AttributeOverride(name="postalCode", column = @Column(name = "shipmentAddress_postalCode")),
         @AttributeOverride(name="floor", column = @Column(name = "shipmentAddress_floor"))
     })
+    @ApiModelProperty(value = "Address to be used when shipping orders.", required = true)
     // ----------- << attribute.annotations@AAAAAAFsmOU0XASDFZ4= >>
     // ----------- >>
     private Address shipmentAddress;
@@ -77,6 +86,7 @@ public class Account {
         @AttributeOverride(name="postalCode", column = @Column(name = "billingAddress_postalCode")),
         @AttributeOverride(name="floor", column = @Column(name = "billingAddress_floor"))
     })
+    @ApiModelProperty("Address to be used for billing purposes.")
     // ----------- << attribute.annotations@AAAAAAFsmOVrtwTNz48= >>
     // ----------- >>
     private Address billingAddress;

@@ -514,7 +514,7 @@
 															"visible": false,
 															"fillColor": "#38bcff",
 															"font": "Arial;11;0",
-															"width": 68.4599609375,
+															"width": 69,
 															"height": 11,
 															"text": "(from domain)"
 														},
@@ -527,7 +527,7 @@
 															"visible": false,
 															"fillColor": "#38bcff",
 															"font": "Arial;11;0",
-															"width": 191.08740234375,
+															"width": 377.73828125,
 															"height": 11,
 															"text": "{archetype.persistence.persistent=true}",
 															"horizontalAlignment": 1
@@ -792,7 +792,7 @@
 															"font": "Arial;11;0",
 															"left": 72,
 															"top": 48,
-															"width": 68.4599609375,
+															"width": 69,
 															"height": 11,
 															"text": "(from domain)"
 														},
@@ -807,7 +807,7 @@
 															"font": "Arial;11;0",
 															"left": 72,
 															"top": 48,
-															"width": 191.08740234375,
+															"width": 377.73828125,
 															"height": 11,
 															"text": "{archetype.persistence.persistent=true}",
 															"horizontalAlignment": 1
@@ -1586,6 +1586,7 @@
 													"$ref": "AAAAAAFsmOU0WwSBDoM="
 												},
 												"name": "shipmentAddress",
+												"documentation": "Address to be used when shipping orders. ",
 												"reference": {
 													"$ref": "AAAAAAFsmOQwEwQ68bU="
 												},
@@ -1617,6 +1618,7 @@
 													"$ref": "AAAAAAFsmOVrtwTLv2k="
 												},
 												"name": "billingAddress",
+												"documentation": "Address to be used for billing purposes. ",
 												"reference": {
 													"$ref": "AAAAAAFsmOQwEwQ68bU="
 												},
@@ -1624,6 +1626,7 @@
 											}
 										}
 									],
+									"documentation": "In order to interact with the application, a customer must have an Account.",
 									"tags": [
 										{
 											"_type": "Tag",
@@ -1645,6 +1648,7 @@
 												"$ref": "AAAAAAFsmOMlDAPjE2E="
 											},
 											"name": "email",
+											"documentation": "Account email address. Unique for each customer.",
 											"type": "string"
 										},
 										{
@@ -1654,6 +1658,7 @@
 												"$ref": "AAAAAAFsmOMlDAPjE2E="
 											},
 											"name": "password",
+											"documentation": "Customer password, encoded. ",
 											"type": "string"
 										},
 										{
@@ -1663,6 +1668,7 @@
 												"$ref": "AAAAAAFsmOMlDAPjE2E="
 											},
 											"name": "firstName",
+											"documentation": "Customer's first name. ",
 											"type": "string"
 										},
 										{
@@ -1672,6 +1678,7 @@
 												"$ref": "AAAAAAFsmOMlDAPjE2E="
 											},
 											"name": "lastName",
+											"documentation": "Customer's last name. ",
 											"type": "string"
 										},
 										{
@@ -1681,6 +1688,7 @@
 												"$ref": "AAAAAAFsmOMlDAPjE2E="
 											},
 											"name": "phoneNo",
+											"documentation": "Phone number. ",
 											"type": "string",
 											"multiplicity": "0..1"
 										}
@@ -1693,6 +1701,7 @@
 										"$ref": "AAAAAAFsmN2BI4nllDM="
 									},
 									"name": "Address",
+									"documentation": "Address of the customer. ",
 									"tags": [
 										{
 											"_type": "Tag",
@@ -1715,6 +1724,7 @@
 												"$ref": "AAAAAAFsmOQwEwQ68bU="
 											},
 											"name": "streetAndNo",
+											"documentation": "Street and number. For instance, 7th avenue 23.",
 											"type": "string"
 										},
 										{
@@ -1724,6 +1734,7 @@
 												"$ref": "AAAAAAFsmOQwEwQ68bU="
 											},
 											"name": "city",
+											"documentation": "Name of the city. ",
 											"type": "string"
 										},
 										{
@@ -1733,6 +1744,7 @@
 												"$ref": "AAAAAAFsmOQwEwQ68bU="
 											},
 											"name": "postalCode",
+											"documentation": "Postal code. ",
 											"type": "string"
 										},
 										{
@@ -1742,10 +1754,24 @@
 												"$ref": "AAAAAAFsmOQwEwQ68bU="
 											},
 											"name": "floor",
+											"documentation": "Floor, if available. ",
 											"type": "string",
 											"multiplicity": "0..1"
 										}
 									]
+								}
+							],
+							"documentation": "Domain package contains persistent domain concepts. ",
+							"tags": [
+								{
+									"_type": "Tag",
+									"_id": "AAAAAAFsxA9ZVuTS/aY=",
+									"_parent": {
+										"$ref": "AAAAAAFsmN2BI4nllDM="
+									},
+									"name": "archetype.doc.docFormat",
+									"kind": "string",
+									"value": "swagger"
 								}
 							]
 						},
@@ -1756,6 +1782,7 @@
 								"$ref": "AAAAAAFsmNzRaYncug8="
 							},
 							"name": "repositories",
+							"documentation": "Package that contains Spring Data repositories. ",
 							"stereotype": "repository"
 						},
 						{
@@ -1765,6 +1792,7 @@
 								"$ref": "AAAAAAFsmNzRaYncug8="
 							},
 							"name": "services",
+							"documentation": "Package that contains services: classes responsible for implementing business logic of the app. ",
 							"stereotype": "service"
 						},
 						{
@@ -1774,6 +1802,7 @@
 								"$ref": "AAAAAAFsmNzRaYncug8="
 							},
 							"name": "controllers",
+							"documentation": "Controllers. ",
 							"stereotype": "controller"
 						}
 					],

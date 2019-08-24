@@ -8,6 +8,8 @@ package com.archetype.eatalian.accounts.domain;
 import java.util.*;
 import java.time.*;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -16,28 +18,33 @@ import javax.validation.constraints.*;
 // ----------- >>
 
 @Embeddable
+@ApiModel(description = "Address of the customer.")
 // ----------- << class.annotations@AAAAAAFsmOQwEwQ68bU= >>
 // ----------- >>
 public class Address {
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "Street and number. For instance, 7th avenue 23.", required = true)
     // ----------- << attribute.annotations@AAAAAAFsmORKlgRkX7g= >>
     // ----------- >>
     private String streetAndNo;
 
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "Name of the city.", required = true)
     // ----------- << attribute.annotations@AAAAAAFsmORkXgRrdDA= >>
     // ----------- >>
     private String city;
 
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "Postal code.", required = true)
     // ----------- << attribute.annotations@AAAAAAFsmOR/qwRyEvo= >>
     // ----------- >>
     private String postalCode;
 
     @Column
+    @ApiModelProperty("Floor, if available.")
     // ----------- << attribute.annotations@AAAAAAFsmOSZnAR5bY4= >>
     // ----------- >>
     private String floor;
@@ -89,5 +96,5 @@ public class Address {
     public Address() {
     }
 
-    // ----------- >>
+// ----------- >>
 }

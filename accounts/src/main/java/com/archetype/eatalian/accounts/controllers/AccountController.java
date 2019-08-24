@@ -8,6 +8,7 @@ package com.archetype.eatalian.accounts.controllers;
 
 import com.archetype.eatalian.accounts.domain.Account;
 import com.archetype.eatalian.accounts.services.AccountService;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import javax.validation.Valid;
 @Transactional
 @RestController
 @RequestMapping("/accounts")
+@Api
 public class AccountController {
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
